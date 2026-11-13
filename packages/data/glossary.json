@@ -1,0 +1,28 @@
+[
+  { "id": "chi", "category": "action", "hanzi": { "trad": "吃", "simp": "吃" }, "pinyin": "chī", "english": "Chow!", "meaning": "Claim the last discard from the player on your left to complete a run of three in a suit. Literally 'eat'." },
+  { "id": "peng", "category": "action", "hanzi": { "trad": "碰", "simp": "碰" }, "pinyin": "pèng", "english": "Pung!", "meaning": "Claim any player's discard to complete three of a kind. Literally 'bump'." },
+  { "id": "gang", "category": "action", "hanzi": { "trad": "槓", "simp": "杠" }, "pinyin": "gàng", "english": "Kong!", "meaning": "Declare four of a kind, then draw a replacement tile from the dead wall." },
+  { "id": "hu", "category": "action", "hanzi": { "trad": "和 / 胡", "simp": "和 / 胡" }, "pinyin": "hú", "english": "Mahjong! (I win)", "meaning": "Declare a winning hand. Both characters are used and both are pronounced hú in this sense." },
+  { "id": "zimo", "category": "action", "hanzi": { "trad": "自摸", "simp": "自摸" }, "pinyin": "zì mō", "english": "Self-draw", "meaning": "Winning on a tile you drew yourself. Everyone else pays." },
+  { "id": "zhuang", "category": "term", "hanzi": { "trad": "莊", "simp": "庄" }, "pinyin": "zhuāng", "english": "Dealer", "meaning": "The dealer (East) for the current hand. Starts with 14 tiles and discards first." },
+  { "id": "fan", "category": "term", "hanzi": { "trad": "番", "simp": "番" }, "pinyin": "fān", "english": "Fan (scoring unit)", "meaning": "The unit a winning hand is scored in. Patterns range from 1 to 88 fan under MCR. Cantonese speakers say 'faan'." },
+  { "id": "majiang", "category": "term", "hanzi": { "trad": "麻將", "simp": "麻将" }, "pinyin": "má jiàng", "english": "Mahjong", "meaning": "The game itself." },
+  { "id": "pai", "category": "term", "hanzi": { "trad": "牌", "simp": "牌" }, "pinyin": "pái", "english": "Tile", "meaning": "A tile. Appears in many names below." },
+  { "id": "jihu", "category": "term", "hanzi": { "trad": "雞和", "simp": "鸡和" }, "pinyin": "jī hú", "english": "Chicken Hand", "meaning": "A winning hand with no scoring patterns. Worth 8 fan under MCR (where it's listed as 無番和 wú fān hú)." },
+
+  { "id": "fengpai", "category": "tiles", "hanzi": { "trad": "風牌", "simp": "风牌" }, "pinyin": "fēng pái", "english": "Wind tiles", "meaning": "East, South, West, North. 16 tiles." },
+  { "id": "sanyuanpai", "category": "tiles", "hanzi": { "trad": "三元牌", "simp": "三元牌" }, "pinyin": "sān yuán pái", "english": "Dragon tiles", "meaning": "Red 中, Green 發, White 白. 12 tiles." },
+  { "id": "tongzi", "category": "tiles", "hanzi": { "trad": "筒子", "simp": "筒子" }, "pinyin": "tǒng zi", "english": "Dots / Circles suit", "meaning": "Also called 餅 bǐng ('cakes')." },
+  { "id": "suozi", "category": "tiles", "hanzi": { "trad": "索子", "simp": "索子" }, "pinyin": "suǒ zi", "english": "Bamboo suit", "meaning": "Also called 條 tiáo ('strips')." },
+  { "id": "wanzi", "category": "tiles", "hanzi": { "trad": "萬子", "simp": "万子" }, "pinyin": "wàn zi", "english": "Characters / Craks suit", "meaning": "萬 means ten thousand. The number on top is the tile's rank." },
+  { "id": "huapai", "category": "tiles", "hanzi": { "trad": "花牌", "simp": "花牌" }, "pinyin": "huā pái", "english": "Flower and Season tiles", "meaning": "Bonus tiles: expose them and draw a replacement. +1 fan each." },
+
+  { "id": "stage-seating", "category": "stage", "hanzi": { "trad": "定風位", "simp": "定风位" }, "pinyin": "dìng fēng wèi", "english": "1. Seating arrangements", "meaning": "Decide who sits at which wind.", "note": "The booklet's Chinese stage names didn't survive text extraction; these are the standard terms matching its pinyin." },
+  { "id": "stage-dealer", "category": "stage", "hanzi": { "trad": "定莊", "simp": "定庄" }, "pinyin": "dìng zhuāng", "english": "2. Choose the dealer", "meaning": "East starts as dealer, or roll dice." },
+  { "id": "stage-build", "category": "stage", "hanzi": { "trad": "疊牌", "simp": "叠牌" }, "pinyin": "dié pái", "english": "3. Shuffle and build the walls", "meaning": "Stack the tiles two high in four walls." },
+  { "id": "stage-break", "category": "stage", "hanzi": { "trad": "開牌", "simp": "开牌" }, "pinyin": "kāi pái", "english": "4. Break the wall", "meaning": "Roll dice to find where the wall opens, then deal." },
+  { "id": "stage-arrange", "category": "stage", "hanzi": { "trad": "理牌", "simp": "理牌" }, "pinyin": "lǐ pái", "english": "5. Arrange the tiles", "meaning": "Sort your hand to start planning sets." },
+  { "id": "stage-play", "category": "stage", "hanzi": { "trad": "打牌", "simp": "打牌" }, "pinyin": "dǎ pái", "english": "6. Play in turns", "meaning": "Draw or claim, then discard, counter-clockwise." },
+  { "id": "stage-win", "category": "stage", "hanzi": { "trad": "和牌", "simp": "和牌" }, "pinyin": "hú pái", "english": "7. Call Mahjong!", "meaning": "Complete four sets and a pair and declare the win." },
+  { "id": "stage-score", "category": "stage", "hanzi": { "trad": "算番", "simp": "算番" }, "pinyin": "suàn fān", "english": "8. Scoring", "meaning": "Count the fan and settle payments." }
+]

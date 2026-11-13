@@ -1,0 +1,69 @@
+{
+  "id": "ymi-beginner",
+  "name": "YMI Beginner (MCR scoring)",
+  "version": 1,
+  "source": "Yellow Mountain Imports, How To Play Chinese Mahjong v1-80",
+  "tiles": {
+    "suits": ["characters", "dots", "bamboo"],
+    "winds": true,
+    "dragons": true,
+    "bonus": { "flowers": true, "seasons": true },
+    "jokers": 0
+  },
+  "seating": {
+    "order": ["E", "S", "W", "N"],
+    "turnDirection": "counterclockwise",
+    "methods": ["coinIndicators", "windTiles"]
+  },
+  "dealerSelection": {
+    "methods": ["eastSeat", "highestRoll", "countAround"],
+    "default": "eastSeat",
+    "dice": 2
+  },
+  "walls": { "height": 2, "stacksPerWall": { "withBonus": 18, "withoutBonus": 17 } },
+  "wallBreak": {
+    "dice": 2,
+    "rolls": "dealerThenChosenSide",
+    "count": "rightToLeft",
+    "overflow": "continueToNextWall",
+    "dealerTakesFrom": "leftOfBreak"
+  },
+  "deadWall": { "stacks": 7, "position": "rightOfBreak", "onExhausted": "tailOfLiveWall" },
+  "deal": {
+    "rounds": [4, 4, 4],
+    "handSize": 13,
+    "dealerExtra": 1,
+    "dealerExtraModes": ["twoAtOnce", "oneThenOne"],
+    "defaultDealerExtraMode": "twoAtOnce"
+  },
+  "bonusTiles": {
+    "replaceFrom": "deadWall",
+    "repeatUntilNonBonus": true,
+    "fanEach": 1,
+    "countsTowardMinimum": false,
+    "allEightWins": false,
+    "seatMatching": false
+  },
+  "claims": {
+    "chow": { "allowed": true, "from": "left" },
+    "pung": { "from": "any" },
+    "kong": { "from": "any", "replacementFrom": "deadWall" },
+    "priority": ["mahjong", ["pung", "kong"], "chow"],
+    "skipsTurns": true,
+    "multipleWinners": "nearestInTurnOrder",
+    "robbingKong": true
+  },
+  "kongTypes": ["concealed", "melded", "added"],
+  "winning": {
+    "sets": 4,
+    "pairs": 1,
+    "specialShapes": ["sevenPairs", "thirteenOrphans", "knitted"],
+    "selfDraw": true,
+    "fromDiscard": true
+  },
+  "drawGame": { "when": "liveWallExhausted" },
+  "dealerRotation": { "staysOn": ["dealerWin", "draw"], "passTo": "right" },
+  "gameLength": { "rounds": 4, "minHands": 16 },
+  "falseMahjong": { "practice": "undoWithWarning", "table": "houseRulePenalty" },
+  "defaultScoringProfile": "casual"
+}

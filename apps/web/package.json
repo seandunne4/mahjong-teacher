@@ -1,0 +1,31 @@
+{
+  "name": "@mj/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/lxgw-wenkai-tc": "^5.2.0",
+    "@fontsource/noto-serif-sc": "^5.2.0",
+    "@fontsource/noto-serif-tc": "^5.2.0",
+    "@mj/data": "*",
+    "@mj/engine": "*",
+    "minisearch": "^7.1.2",
+    "motion": "^12.18.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.0"
+  },
+  "devDependencies": {
+    "@mdx-js/rollup": "^3.1.0",
+    "@types/mdx": "^2.0.13",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.5.0",
+    "vite": "^6.3.5"
+  }
+}

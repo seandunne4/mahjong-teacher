@@ -1,0 +1,71 @@
+export const meta = { title: 'Sets: chow, pung, kong', order: 1, blurb: 'The building blocks of every winning hand.' }
+
+<Rule id="sets.hand" title="What you're building" setting="winning">
+  <Diagram hand="123m 555p 789s 111z | 99m" caption="Four sets and a pair: the usual winning shape" />
+  <Summary>A winning hand is usually <Val path="winning.sets" /> sets plus <Val path="winning.pairs" /> pair: 14 tiles.</Summary>
+  <Full>
+
+Each set is a **chow**, **pung** or **kong**. Sets can be concealed (all from your own draws, kept in your hand) or exposed (made by claiming a discard and laid face up). The pair is two identical tiles, sometimes called the "eyes".
+
+Start by sorting your tiles: obvious matches on the left, tiles you'd like to discard on the right.
+
+  </Full>
+  <Edge>
+
+Some special hands (such as Seven Pairs or Thirteen Orphans) don't follow the four-sets-and-a-pair shape. See *Winning*.
+
+  </Edge>
+</Rule>
+
+<Rule id="sets.chow" title="Chow 吃 chī" setting="claims.chow">
+  <Diagram hand="345m | 789p* " caption="Three numbers in a row, same suit. The sideways tile was claimed." />
+  <Summary>Three consecutive numbers in one suit, like 3-4-5 Characters.</Summary>
+  <Full>
+
+A chow only uses suit tiles (Characters, Dots, Bamboo); winds and dragons can't make chows. Numbers don't wrap around: 8-9-1 is not a chow.
+
+A **concealed chow** comes entirely from tiles you drew. An **exposed chow** uses the most recent discard from <Val path="claims.chow.from" />: say "chow", take the tile, lay the chow face up, then discard.
+
+  </Full>
+  <Edge>
+
+Different suits never mix: 3 Characters, 4 Dots, 5 Bamboo is not a chow.
+
+  </Edge>
+</Rule>
+
+<Rule id="sets.pung" title="Pung 碰 pèng" setting="claims.pung">
+  <Diagram hand="777s | 222z*" caption="Three identical tiles (concealed 7 Bamboo; exposed South winds)" />
+  <Summary>Three identical tiles. You can claim a pung from <Val path="claims.pung.from" />.</Summary>
+  <Full>
+
+A **concealed pung** is formed entirely from your own draws. An **exposed pung** is made by claiming a discard from any player: call "pung" immediately, before the next player draws, take the tile, reveal the pung, then discard. Play then continues to *your* right, so anyone in between is skipped.
+
+  </Full>
+  <Edge>
+
+You may only claim the most recent discard. Once the next player has drawn, it's too late.
+
+  </Edge>
+</Rule>
+
+<Rule id="sets.kong" title="Kong 槓 gàng" setting="kongTypes">
+  <Diagram hand="3333p! | 6666m* | 5555z*" caption="Concealed kong (ends face down), melded kong, kong of White Dragons" />
+  <Summary>Four identical tiles. Declare it, lay it out, and draw a replacement tile from the dead wall.</Summary>
+  <Full>
+
+A kong counts as one set but uses four tiles, so after declaring it you draw one replacement tile from the dead wall, then discard as normal.
+
+- **Concealed kong**: all four from your own draws. Lay it face down (we show the end tiles face down).
+- **Melded kong**: you hold three and claim the fourth from any player's discard. Lay it face up.
+- **Added kong**: you add a drawn fourth tile to a pung you already exposed. Keep it face up.
+
+For scoring, melded and added kongs both count as *melded*.
+
+  </Full>
+  <Edge>
+
+Concealed and added kongs are made only from your own tiles. When someone adds to a pung, another player who needs that exact tile may win by "robbing the kong" (see *Claiming*).
+
+  </Edge>
+</Rule>

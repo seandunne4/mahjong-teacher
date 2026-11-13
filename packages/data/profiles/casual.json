@@ -1,0 +1,19 @@
+{
+  "id": "casual",
+  "name": "Casual",
+  "description": "For first games: any legal hand wins, the booklet's patterns count without exclusions, 1 fan = 1 chip.",
+  "patternLibrary": "mcr",
+  "minimumFan": 0,
+  "minimumCountsBonus": false,
+  "chickenHand": { "enabled": true, "fan": 8 },
+  "exclusions": false,
+  "patterns": { "include": "booklet", "overrides": {} },
+  "bonusFan": { "perFlower": 1, "noFlowerBonus": 0 },
+  "payment": {
+    "type": "simple",
+    "fanUnit": 1,
+    "discard": "discarderPays",
+    "selfDraw": "allThreePay",
+    "base": 0
+  }
+}

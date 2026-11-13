@@ -1,0 +1,19 @@
+{
+  "id": "ymi-mcr",
+  "name": "YMI booklet / MCR",
+  "description": "Plays exactly by the booklet: 8-fan minimum from non-flower patterns, MCR exclusions, flowers +1 fan each after the hand qualifies.",
+  "patternLibrary": "mcr",
+  "minimumFan": 8,
+  "minimumCountsBonus": false,
+  "chickenHand": { "enabled": true, "fan": 8 },
+  "exclusions": true,
+  "patterns": { "include": "all", "overrides": {} },
+  "bonusFan": { "perFlower": 1, "noFlowerBonus": 0 },
+  "payment": {
+    "type": "simple",
+    "fanUnit": 1,
+    "discard": "discarderPays",
+    "selfDraw": "allThreePay",
+    "base": 0
+  }
+}

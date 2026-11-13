@@ -1,0 +1,61 @@
+export const meta = { title: 'Draws, dealers and game length', order: 5, blurb: 'What happens between hands, and how long a game lasts.' }
+
+<Rule id="flow.draw" title="Draw game" setting="drawGame">
+  <Diagram hand="E | 7z 7z" caption="No tiles left in the live wall: nobody wins" />
+  <Summary>If the live wall runs out before anyone declares Mahjong, the hand is a draw with no winner.</Summary>
+  <Full>
+
+The dead wall isn't part of the live wall, so the hand ends when the last drawable live-wall tile has been taken and discarded without a win.
+
+  </Full>
+  <Edge>
+
+If kongs and flowers use up all 14 dead-wall tiles, replacements are drawn from <Val path="deadWall.onExhausted" />. The booklet doesn't cover this case.
+
+  </Edge>
+</Rule>
+
+<Rule id="flow.dealer" title="Who deals next" setting="dealerRotation">
+  <Diagram hand="E | S" caption="East passes the deal to South" />
+  <Summary>The dealer stays dealer after winning or after a draw. Otherwise the deal passes to the player on the dealer's right.</Summary>
+  <Full>
+
+When the deal passes, everyone's seat wind moves too: the new dealer becomes East for the next hand.
+
+  </Full>
+  <Edge>
+
+A dealer on a winning streak can stay dealer for many hands in a row.
+
+  </Edge>
+</Rule>
+
+<Rule id="flow.length" title="Game length" setting="gameLength">
+  <Diagram hand="E S W N" caption="Four rounds: East, South, West, North" />
+  <Summary>A full game is <Val path="gameLength.rounds" /> rounds, at least <Val path="gameLength.minHands" /> hands.</Summary>
+  <Full>
+
+Each round is one complete dealer rotation (East, South, West, North). The round's wind is the "prevalent wind", which matters for scoring. The game can run longer than 16 hands when dealers win or hands are drawn.
+
+  </Full>
+  <Edge>
+
+Groups short on time often play a half game (East and South rounds only).
+
+  </Edge>
+</Rule>
+
+<Rule id="flow.false-mahjong" title="False Mahjong or a wrong claim" setting="falseMahjong">
+  <Diagram hand="123m 456p 78s | 3z*" caption="Called Mahjong, but the hand isn't complete" />
+  <Summary>The booklet has no rule. In practice mode the app lets you undo with a warning; at the table, agree on a penalty first.</Summary>
+  <Full>
+
+A common house rule: the false caller pays each other player a fixed amount and the hand continues (or is replayed). Write your group's choice down before you start.
+
+  </Full>
+  <Edge>
+
+Table mode (a later phase) will let you set a penalty as a house rule.
+
+  </Edge>
+</Rule>

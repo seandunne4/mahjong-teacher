@@ -1,0 +1,82 @@
+export const meta = { title: 'Winning (Mahjong!)', order: 4, blurb: 'Declaring a win, the tile count, special hands and the minimum.' }
+
+<Rule id="winning.declare" title="Declaring Mahjong 和 hú" setting="winning">
+  <Diagram hand="123m 456p 789s 22z | 33z | 3z*" caption="Waiting on West; a discarded West completes the hand" />
+  <Summary>Complete your hand by drawing the winning tile yourself, or by claiming any player's discard, and call "Mahjong".</Summary>
+  <Full>
+
+- **Self-draw (自摸 zìmō):** you draw the winning tile from the wall on your turn. Declare Mahjong and reveal your hand.
+- **From a discard:** any player's discard can complete your hand. Declare Mahjong, take the tile, and reveal. A Mahjong claim beats every other claim.
+
+The hand ends immediately and is scored.
+
+  </Full>
+  <Edge>
+
+You can win on the last discard from anyone, not just the player on your left, even if the winning set is a chow.
+
+  </Edge>
+</Rule>
+
+<Rule id="winning.count" title="Tile count with kongs" setting="winning.sets">
+  <Diagram hand="2222m* 345p 678s 999p 11z" caption="15 tiles: the kong adds one" />
+  <Summary>A standard winning hand has 14 tiles, plus one extra for each kong.</Summary>
+  <Full>
+
+A kong is four tiles but counts as one set, so each declared kong adds one physical tile to the total. Four sets and a pair with two kongs is 16 tiles.
+
+  </Full>
+  <Edge>
+
+Flower and season tiles are set aside and never count toward the 14.
+
+  </Edge>
+</Rule>
+
+<Rule id="winning.special" title="Special hands" setting="winning.specialShapes">
+  <Diagram hand="22m 55m 33p 88p 44s 11z 66z" caption="Seven Pairs: no sets at all" />
+  <Summary>A few hands break the four-sets-and-a-pair shape: Seven Pairs, Thirteen Orphans and the knitted hands.</Summary>
+  <Full>
+
+These only count if your group allows them; the booklet says to check the scoring chart. See the Fan chart for each one's exact requirements.
+
+  </Full>
+  <Edge>
+
+Seven Pairs, Thirteen Orphans and the honors-and-knitted hands must be concealed: you can't claim discards for them except the final winning tile.
+
+  </Edge>
+</Rule>
+
+<Rule id="winning.minimum" title="Minimum to win" setting="profile.minimumFan">
+  <Diagram hand="234m* 678p* 345s* 444m* 11z" caption="A Chicken Hand: legal, but no scoring patterns" />
+  <Summary>
+    <When path="profile.minimumFan" is={0}>With your current scoring profile, any legal hand wins.</When>
+    <When path="profile.minimumFan" not={0}>A winning hand needs at least <Val path="profile.minimumFan" /> fan from non-flower patterns.</When>
+  </Summary>
+  <Full>
+
+Under the booklet's MCR scoring the minimum is 8 fan, and flowers don't count toward it. For casual play your group can agree on a different minimum.
+
+  </Full>
+  <Edge>
+
+**The Chicken Hand oddity:** under MCR a hand with *no* patterns is a Chicken Hand worth 8 fan, so it wins. A hand with 3 fan of real patterns doesn't reach 8, so it can't win. That's how the booklet's list works. Casual play avoids it by letting any legal hand win.
+
+  </Edge>
+</Rule>
+
+<Rule id="winning.payment" title="Who pays" setting="profile.payment">
+  <Diagram hand="5p* | E S W N" caption="Won on a discard: only the discarder pays" />
+  <Summary>Won on a discard: only the discarder pays. Won by self-draw: all three other players pay.</Summary>
+  <Full>
+
+Agree on values before you start, for example 1 fan = 1 chip, and give everyone the same starting total (say 1,000 points).
+
+  </Full>
+  <Edge>
+
+Scoring varies more than anything else between groups. The calculator (coming in a later phase) supports other payment schemes.
+
+  </Edge>
+</Rule>

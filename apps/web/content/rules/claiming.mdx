@@ -1,0 +1,80 @@
+export const meta = { title: 'Claiming discards', order: 2, blurb: 'Who can take a discard, and who wins when two people want it.' }
+
+<Rule id="claims.chow" title="Chow only from the player on your left" setting="claims.chow" when={{ "claims.chow.allowed": true, "claims.chow.from": "left" }}>
+  <Diagram hand="4p 6p | 5p*" caption="You hold 4 and 6 Dots; the player on your left discards 5 Dots" />
+  <Summary>You can claim a discard for a chow only from <Val path="claims.chow.from" />, the player who played just before you.</Summary>
+  <Full>
+
+When the player on your left discards a tile that completes a run in your hand, call "chow", take it, lay the chow face up, and discard. You can't chow a tile thrown by the player across from you or on your right.
+
+  </Full>
+  <Edge>
+
+If someone else calls pung, kong or Mahjong on the same tile, their claim beats your chow.
+
+  </Edge>
+</Rule>
+
+<Rule id="claims.pungkong" title="Pung or kong from anyone" setting="claims.pung">
+  <Diagram hand="99s | 9s*" caption="Holding a pair of 9 Bamboo, anyone's 9 Bamboo discard lets you pung" />
+  <Summary>You can claim any player's most recent discard to make a pung or a kong.</Summary>
+  <Full>
+
+Call "pung" (or "kong") right away. Take the tile and expose the set. After a kong, draw a replacement from the dead wall. Then discard; play continues with the player on your right.
+
+  </Full>
+  <Edge>
+
+A claim must be made before the next player draws from the wall.
+
+  </Edge>
+</Rule>
+
+<Rule id="claims.priority" title="When several players want the same discard" setting="claims.priority">
+  <Diagram hand="5p* | 55p | 46p" caption="Mahjong beats pung, pung beats chow" />
+  <Summary>Priority: Mahjong first, then pung or kong, then chow.</Summary>
+  <Full>
+
+1. **Declaring Mahjong** with that tile.
+2. **Pung or kong.**
+3. **Chow** (only possible for the player on the discarder's right).
+
+The highest claim takes the tile even if it's not that player's turn.
+
+  </Full>
+  <Edge>
+
+If two players both want the tile for Mahjong, it goes to <Val path="claims.multipleWinners" />. The booklet doesn't say; this is the common MCR practice and can be changed as a house rule.
+
+  </Edge>
+</Rule>
+
+<Rule id="claims.skip" title="Claims skip players" setting="claims.skipsTurns">
+  <Diagram hand="EEE* | S | W" caption="East discards; West pungs; South is skipped" />
+  <Summary>A pung or kong claim jumps the turn order: anyone between the discarder and the claimer loses their turn.</Summary>
+  <Full>
+
+Example: East discards. West can make a pung with it, so West calls "pung", takes it, and discards. South never gets a turn this time. Play continues from West to North.
+
+  </Full>
+  <Edge>
+
+A chow never skips anyone, because it can only come from the player just before you.
+
+  </Edge>
+</Rule>
+
+<Rule id="claims.robbing" title="Robbing a kong" setting="claims.robbingKong" when={{ "claims.robbingKong": true }}>
+  <Diagram hand="222s* 2s | 13s" caption="Someone adds a 2 Bamboo to their pung; you're waiting on 2 Bamboo" />
+  <Summary>When a player adds a tile to an exposed pung, anyone who can win with that tile may claim it for Mahjong.</Summary>
+  <Full>
+
+The added tile counts like a discard for winning purposes only. The player who tried to make the kong keeps the pung and doesn't draw a replacement. MCR scores this as the "Robbing the Kong" pattern.
+
+  </Full>
+  <Edge>
+
+The booklet doesn't mention this rule. It's allowed by default and can be switched off as a house rule.
+
+  </Edge>
+</Rule>

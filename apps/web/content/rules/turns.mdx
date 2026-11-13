@@ -1,0 +1,82 @@
+export const meta = { title: 'Taking turns', order: 3, blurb: 'Draw or claim, then discard, counter-clockwise.' }
+
+<Rule id="turns.order" title="Turn order is counter-clockwise" setting="seating.turnDirection">
+  <Diagram hand="E S W N" caption="East → South → West → North" />
+  <Summary>The dealer (East) goes first; play passes to the player on your right: East, South, West, North.</Summary>
+  <Full>
+
+Seats follow the Chinese order East-South-West-North, which runs counter-clockwise around the table. That's not how a map reads: South sits on East's *right*.
+
+  </Full>
+  <Edge>
+
+Claims can jump the order (see *Claiming*); play always continues from the claimer's right.
+
+  </Edge>
+</Rule>
+
+<Rule id="turns.dealer-start" title="The dealer starts by discarding" setting="deal">
+  <Diagram hand="1112345678999m 5m" caption="The dealer starts with 14 tiles and discards one" />
+  <Summary>The dealer starts with 14 tiles and opens by discarding one. Everyone else has 13.</Summary>
+  <Full>
+
+Before the first discard, anyone holding flower or season tiles exposes and replaces them. Then the dealer discards face up in the centre, leaving them with 13 like everyone else.
+
+  </Full>
+  <Edge>
+
+If the dealer's 14 tiles already make a winning hand, they can declare Mahjong immediately.
+
+  </Edge>
+</Rule>
+
+<Rule id="turns.each" title="On your turn" setting="claims">
+  <Diagram hand="23m 66p | 4m*" caption="Either claim the last discard, or draw from the live wall" />
+  <Summary>Either claim the last discard (if allowed) or draw from the live wall, then discard one tile.</Summary>
+  <Full>
+
+1. If the previous discard completes a set you can claim, or wins you the hand, you may claim it.
+2. Otherwise draw the next tile from the live wall.
+3. Discard one tile face up into the centre.
+
+Every discard is visible to everyone, so other players will soon guess what you're collecting.
+
+  </Full>
+  <Edge>
+
+You always end your turn with 13 tiles in hand plus any exposed sets (a kong counts as 3 for this purpose).
+
+  </Edge>
+</Rule>
+
+<Rule id="turns.flowers" title="Drawing a flower or season" setting="bonusTiles" when={{ "derived.hasBonus": true }}>
+  <Diagram hand="1f | 2x" caption="Expose bonus tiles and draw replacements" />
+  <Summary>Expose it immediately, set it aside, and draw a replacement from the dead wall before you discard.</Summary>
+  <Full>
+
+Bonus tiles never stay in your hand. Each one is worth <Val path="bonusTiles.fanEach" /> fan at scoring, added after the hand meets the minimum.
+
+  </Full>
+  <Edge>
+
+If the replacement is also a bonus tile, expose it and draw again. If the dead wall runs out, draw replacements from <Val path="deadWall.onExhausted" />.
+
+<When path="bonusTiles.allEightWins" is={true}>House rule: collecting all eight flowers and seasons wins the hand on the spot.</When>
+
+  </Edge>
+</Rule>
+
+<Rule id="turns.no-flowers" title="Playing without flowers" setting="tiles.bonus" when={{ "derived.hasBonus": false }}>
+  <Diagram hand="1f 2f 3f 4f 1x 2x 3x 4x" caption="Leave these eight tiles in the box" />
+  <Summary>Your group plays without flower and season tiles: <Val path="derived.tileCount" /> tiles, walls <Val path="derived.stacksPerWall" /> stacks long.</Summary>
+  <Full>
+
+Many Chinese players leave the bonus tiles out, and the booklet suggests beginners do too. Nothing else about play changes.
+
+  </Full>
+  <Edge>
+
+Turn flowers back on in Settings to play the full 144-tile game.
+
+  </Edge>
+</Rule>
